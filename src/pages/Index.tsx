@@ -40,56 +40,84 @@ const Index = () => {
   const mockPlayers: Player[] = [
     {
       id: '1',
-      username: 'Player_X247',
+      username: 'builderman',
       status: 'online',
       lastSeen: '2 minutes ago',
       currentGame: 'Brookhaven RP',
       playtime: '4h 23m',
-      accountAge: '2y 4m',
+      accountAge: '18y 2m',
     },
     {
       id: '2',
-      username: 'Shadow_Runner',
+      username: 'Stickmasterluke',
       status: 'in-game',
       lastSeen: 'Now',
       currentGame: 'Adopt Me!',
       playtime: '1h 15m',
-      accountAge: '3y 8m',
+      accountAge: '16y 8m',
     },
     {
       id: '3',
-      username: 'NoobMaster2024',
+      username: 'Merely',
       status: 'offline',
       lastSeen: '15 minutes ago',
       playtime: '0h 0m',
-      accountAge: '1y 2m',
+      accountAge: '15y 2m',
+    },
+    {
+      id: '4',
+      username: 'Shedletsky',
+      status: 'in-game',
+      lastSeen: 'Now',
+      currentGame: 'Bloxburg',
+      playtime: '2h 47m',
+      accountAge: '17y 5m',
+    },
+    {
+      id: '5',
+      username: 'Potatosalad94',
+      status: 'online',
+      lastSeen: '5 minutes ago',
+      currentGame: 'Murder Mystery 2',
+      playtime: '6h 12m',
+      accountAge: '12y 1m',
     },
   ];
 
   const mockGames: Game[] = [
     { id: '1', name: 'Brookhaven RP', players: 2, lastUpdated: '2 min ago' },
     { id: '2', name: 'Adopt Me!', players: 1, lastUpdated: '1 min ago' },
-    { id: '3', name: 'Tower of Hell', players: 0, lastUpdated: '8 min ago' },
+    { id: '3', name: 'Bloxburg', players: 1, lastUpdated: '3 min ago' },
+    { id: '4', name: 'Murder Mystery 2', players: 1, lastUpdated: '5 min ago' },
+    { id: '5', name: 'Tower of Hell', players: 0, lastUpdated: '8 min ago' },
+    { id: '6', name: 'Jailbreak', players: 0, lastUpdated: '12 min ago' },
+    { id: '7', name: 'Phantom Forces', players: 0, lastUpdated: '18 min ago' },
   ];
 
   const [chatMessages, setChatMessages] = useState<ChatMessage[]>([
     {
       id: '1',
-      user: 'Observer_01',
-      message: 'Player_X247 just joined Brookhaven...',
+      user: 'Observer01',
+      message: 'builderman is back online, this is rare',
       timestamp: '2m ago',
     },
     {
       id: '2',
-      user: 'Watcher_99',
-      message: 'This is insane, Shadow_Runner has been playing for hours',
+      user: 'Watcher99',
+      message: 'Stickmasterluke has been in Adopt Me for over an hour now',
       timestamp: '5m ago',
     },
     {
       id: '3',
       user: 'Anonymous',
-      message: 'Anyone tracking NoobMaster2024?',
+      message: 'Anyone see Merely go offline? Weird timing...',
       timestamp: '8m ago',
+    },
+    {
+      id: '4',
+      user: 'SilentTracker',
+      message: 'Potatosalad94 playtime is suspicious, 6+ hours straight',
+      timestamp: '12m ago',
     },
   ]);
 
@@ -300,6 +328,58 @@ const Index = () => {
                 </CardContent>
               </Card>
             </div>
+
+            <Card className="border-primary/30">
+              <CardHeader>
+                <div className="flex items-center justify-between">
+                  <div>
+                    <CardTitle className="flex items-center gap-2">
+                      <Icon name="Video" size={20} className="text-primary" />
+                      Live Game Stream
+                    </CardTitle>
+                    <CardDescription>Real-time gameplay from tracked players</CardDescription>
+                  </div>
+                  <Badge variant="outline" className="bg-red-500/20 text-red-400 border-red-500 flex items-center gap-2">
+                    <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
+                    LIVE
+                  </Badge>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <div className="relative aspect-video bg-black rounded-lg overflow-hidden border border-primary/30">
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="text-center space-y-4">
+                      <Icon name="Video" size={64} className="mx-auto text-primary/50" />
+                      <div>
+                        <p className="text-lg font-semibold text-white mb-1">Stickmasterluke - Adopt Me!</p>
+                        <p className="text-sm text-gray-400">Stream active • 1h 15m playtime</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="absolute top-4 left-4 bg-black/70 backdrop-blur-sm px-3 py-1.5 rounded-lg border border-primary/30">
+                    <p className="text-xs text-gray-300">Camera #2 • Player POV</p>
+                  </div>
+                  <div className="absolute bottom-4 right-4 flex gap-2">
+                    <Button size="sm" variant="secondary" className="gap-2">
+                      <Icon name="Maximize2" size={14} />
+                      Fullscreen
+                    </Button>
+                  </div>
+                </div>
+                <div className="mt-4 flex items-center justify-between text-sm">
+                  <div className="flex items-center gap-2 text-muted-foreground">
+                    <Icon name="Eye" size={16} />
+                    <span>3 observers watching</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Button size="sm" variant="outline" className="gap-2">
+                      <Icon name="SkipForward" size={14} />
+                      Next Stream
+                    </Button>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
           </TabsContent>
 
           <TabsContent value="players" className="space-y-4">
